@@ -19,12 +19,16 @@
 	git status  // 查看当前状态 Master the current status
 	git diff  readme.txt// 查看当前状态做了什么修改
 	git add  // 然后添加
+	git add . // 添加当前文件夹下所有的代码
 	git commit -m “explain new” 
+	git config alias.st “status” // git简写
+	git config alias.ci “commit -m” // git简写
 
 5. 时光机-版本回退
 	git log  // 查看版本信息日志
 	git log —-pretty=oneline //简化版本信息日志
 	git reset —-hard HEAD^ //回到上一次编辑状态 ^^两次 以此类推, HEAD~100 100次
+	git reset —-hard HEAD~n // 回到前n个版本
 	git reset —-hard xxxxxx // xxx是版本号, 可回到未来
 	git reflog // 显示时光机命令历史 重返未来
 	git commit --amend -m “新描述”    // 如果已经commit了, 但是还没push到远程, 可以用这个命令来重写上次commit的消息, 并且将新的更改和上次更改合并
@@ -43,7 +47,7 @@
 
 8. 删除文件:
 	rm read.txt // 用命令行删除
-	git rm file
+	git rm file  // 删除文件(名称file)
 	git commit -m “explain” // 从版本库删除该文件
 	git checkout —- readme.txt // 还原从文件管理器删除的文件(前提是版本库里的还没删),只能恢复文件到最新版本
 
@@ -66,4 +70,30 @@
 
 12. 后续进阶教程待有时间再慢慢学习
 	
-	
+13. 多人开发
+	1. 创建共享版本库
+	模拟创建一个公司服务器版本库文件夹
+	在这个文件夹下
+	git init -bare
+	2. 经理下载共享版本库内容
+	在公司服务器同级文件夹下创建经理文件夹(模拟公司环境)
+	然后cd进入经理文件夹
+	git clone 地址
+	3. 添加忽略文件
+	创建.gitignore
+	去github找对应gitignore:https://github.com/github/gitignore/blob/master/Objective-C.gitignore
+	然后将所有代码copy到.gitignore中
+	git add .gitignore
+	git commit -m”添加了需要忽略的文件”
+	4. 初始化项目
+	创建项目
+	commit项目
+	push项目
+	5. 项目成员张三加入开发
+	git clone地址
+	6. 开始多人开发
+	修改ViewController
+	创建person类
+	演示冲突
+	演示storyboard中的冲突
+	在项目中添加静态库:右键->add	
