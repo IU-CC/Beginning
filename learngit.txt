@@ -96,4 +96,32 @@
 	创建person类
 	演示冲突
 	演示storyboard中的冲突
-	在项目中添加静态库:右键->add	
+	在项目中添加静态库:右键->add
+
+14. 多人开发管理
+	1) 版本备份
+	git tag -a版本名称 -m”注释”
+	git tag // 查看版本名称
+	git push origin 版本名称
+	2) 版本修复分支
+	git checkout weibo1.0 // 切换到备份1.0的tag中
+	git branch weibo1.0fixbug // 创建1.0fixbug的分支
+	git branch // 查看所有分支
+	git checkout weibo1.0fixbug
+	或者这样
+	git checkout weibo1.0
+	git checkout -b weibo1.0fixbug
+	查看远程分支
+	git branch -r
+	删除远程分支
+	git branch -r -d origin/weibo1.0fixbug
+	删除远程主分支
+	git push origin —-delete weibo1.0fixbug
+	3) 修复bug, 对修复完成的版本进行备份
+	git tag -a weibo1.1 -m”注释”
+	git push origin weibo1.1
+	4) 将分支中的代码合并到master分支
+	git checkout master
+	删除分支
+	git branch -d weibo1.0fixbug
+
