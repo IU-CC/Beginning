@@ -122,6 +122,8 @@
 	git push origin weibo1.1
 	4) 将分支中的代码合并到master分支
 	git checkout master
+	5) 将主分支代码合并到分支
+	git merge master
 	删除分支
 	git branch -d weibo1.0fixbug
 
