@@ -27,11 +27,23 @@
 5. 时光机-版本回退
 	git log  // 查看版本信息日志
 	git log —-pretty=oneline //简化版本信息日志
-	git reset —-hard HEAD^ //回到上一次编辑状态 ^^两次 以此类推, HEAD~100 100次
-	git reset —-hard HEAD~n // 回到前n个版本
-	git reset —-hard xxxxxx // xxx是版本号, 可回到未来
 	git reflog // 显示时光机命令历史 重返未来
 	git commit --amend -m “新描述”    // 如果已经commit了, 但是还没push到远程, 可以用这个命令来重写上次commit的消息, 并且将新的更改和上次更改合并
+	
+	1. 未使用git add缓存代码时
+	git checkout -- xxx(xxx是文件名)
+	git checkout .放弃所有文件的修改
+
+	2. 已经使用了git add缓存代码
+	git reset HEAD xxx放弃指定文件的缓存
+	git reset .放弃所有文件的缓存
+	此番操作后回到 1
+
+	3. 已经使用了git commit提交代码
+	git reset —-hard HEAD^ //回到上一次编辑状态 ^^两次 以此类推, HEAD~100 100次
+	git reset —-hard HEAD~n // 回到前n个版本
+	git reset —-hard xxxxxx // xxx是版本号/提交id, 可回到未来或者回到任意版本
+
 
 6.git add and git commit 
 	工作区修改, 每次修改后都要git add 到暂存区, 然后git commit提交
