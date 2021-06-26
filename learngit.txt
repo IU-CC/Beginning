@@ -118,6 +118,7 @@
 	2) 版本修复分支
 	git checkout weibo1.0 // 切换到备份1.0的tag中
 	git branch weibo1.0fixbug // 创建1.0fixbug的分支
+	git branch -a // 查看所有分支
 	git branch // 查看所有分支
 	git checkout weibo1.0fixbug
 	或者这样
@@ -126,9 +127,13 @@
 	查看远程分支
 	git branch -r
 	删除远程分支
-	git branch -r -d origin/weibo1.0fixbug
+	git branch -r -d origin/weibo1.0fixbug 
+	或者
+	git push origin :[branch name]
 	删除远程主分支
 	git push origin —-delete weibo1.0fixbug
+	推送新分支到库
+	git push origin [branch name]
 	3) 修复bug, 对修复完成的版本进行备份
 	git tag -a weibo1.1 -m”注释”
 	git push origin weibo1.1
@@ -136,6 +141,6 @@
 	git checkout master
 	5) 将主分支代码合并到分支
 	git merge master
-	删除分支
+	删除分支(本地)
 	git branch -d weibo1.0fixbug
 
